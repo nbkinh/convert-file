@@ -75,7 +75,6 @@ class SiteController extends Controller
 
                 unlink($model->path);
 
-
                 header("Content-type: text/plain");
                 header("Content-Disposition: attachment; filename=result.txt");
                 echo json_encode($actualContent);
@@ -172,10 +171,10 @@ class SiteController extends Controller
         $arrSemicolons = explode(';', $newContent);
         foreach ($arrSemicolons as $contentSemicolon) {
             $arrEqual = explode('=', $contentSemicolon);
-            if (count($arrEqual) >= 2) {
+            if (count($arrEqual) >= 1) {
                 $result[] = [
                     'Name' => $arrEqual[0],
-                    'Value' => $arrEqual[1],
+                    'Value' => isset($arrEqual[1]) ? $arrEqual[1] : '',
                     'Path' => '/',
                     'Secure' => false,
                     'HttpOnly' => false,
