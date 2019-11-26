@@ -138,7 +138,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays about page.
+     * Displays about page update comment.
      *
      * @return string
      */
